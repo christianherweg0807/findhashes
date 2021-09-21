@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /root
+cd /usr/local
 sed -i 's/ main/ main contrib non-free/' /etc/apt/sources.list
 apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get -y install p7zip wget tmux linux-headers-$(uname -r)
@@ -10,3 +10,4 @@ systemctl restart ssh.service
 wget -O /tmp/hashcat.7z https://github.com/hashcat/hashcat/releases/download/v6.2.4/hashcat-6.2.4.7z
 7zr x /tmp/hashcat.7z
 ln -s hashcat-* hashcat
+chmod 777 hashcat
